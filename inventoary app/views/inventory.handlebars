@@ -1,5 +1,16 @@
-<p>ID: {{item id}}</p>
-<p>Name: {{name}}</p>
-<p>Quantity: {{quantity}}</p>
-<p>Price: {{price}}</p>
-<p>Supplier: {{supplier}}</p>
+<h1>Update the quote with an id of {{this.id}}</h1>
+
+<form data-id="{{this.id}}" class="update-form">
+
+  <div class="form-group">
+    <label for="quant">Quantity:</label>
+    <input type="text" id="quant" name="quantity" value="{{this.quantity}}">
+  </div>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <textarea id="name" name="name" rows="8" cols="40">{{this.name}}</textarea>
+  </div>
+
+  <button type="submit">Update Quote</button>
+</form>
