@@ -17,16 +17,6 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var mysql = require("mysql");
-
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "codingbootcamp1",
-  database: "inventory_DB"
-});
-
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM inventory;", function(err, data) {
     if (err) {
@@ -37,13 +27,24 @@ app.get("/", function(req, res) {
   });
 });
 
-// Make connection.
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+app.get("/ims", function(req, res) {
+  connection.query("SELECT * FROM inventory;", function(err, data) {
+    if (err) {
+      throw err;
+    }
+
+    res.render("ims", { products: data });
+  });
+});
+
+app.get("/inventory", function(req, res) {
+  connection.query("SELECT * FROM inventory;", function(err, data) {
+    if (err) {
+      throw err;
+    }
+
+    res.render("inventory", { products: data });
+  });
 });
 
 // Start our server so that it can begin listening to client requests.
