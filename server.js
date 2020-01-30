@@ -82,7 +82,7 @@ function updateInventory() {
   );
 
   function deleteProduct() {
-    console.log("Deleting all strawberry icecream...\n");
+    console.log("Deleting products...\n");
     connection.query(
       "DELETE FROM products WHERE ?",
       {
