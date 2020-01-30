@@ -1,8 +1,37 @@
-{{#each ims}}
-<p>ID: {{item id}}</p>
-<p>Name: {{name}}</p>
-<p>Quantity: {{quantity}}</p>
-<p>Price: {{price}}</p>
-<p>Supplier: {{supplier}}</p>
-<hr>
-{{/each}}
+<h1>Inventory Management System</h1>
+
+<p>Manage inventory with this app</p>
+
+<!-- Pass in data from server.js -->
+<ul>
+  {{#each quotes}}
+  	<li>
+  		<p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">Name:</span> {{this.name}}</p>
+      <p><span class="label">Quantity:</span> {{this.quantity}}</p>
+      <p><span class="label">Price:</span> {{this.price}}</p>
+      <p><span class="label">Supplier:</span> {{this.supplier}}</p>
+
+      <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+      <a href="/{{this.id}}">Update this product</a>
+  	</li>
+  {{/each}}
+</ul>
+
+<h2>Add a Quote</h2>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="auth">Name:</label>
+    <input type="text" id="auth" name="author">
+  </div>
+
+  <div class="form-group">
+    <label for="quo">Quantity:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+  </div>
+
+  <button type="submit">Add Quantity</button>
+</form>
