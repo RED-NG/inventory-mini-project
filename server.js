@@ -1,26 +1,27 @@
+var exphbs = require("express-handlebars");
 var express = require("express");
-
-var PORT = process.env.PORT || 8080;
+var mysql = require("mysql");
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
+// Set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var PORT = process.env.PORT || 8080;
+
+// Use the express.static middleware to serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
-// Parse application body as JSON
+// Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.get("/", function(req, res) {
-  connection.query("SELECT * FROM inventory;", function(err, data) {
+  connection.query("SELECT * FROM products;", function(err, data) {
     if (err) {
-      throw err;
+      return res.status(500).end();
     }
 
     res.render("index", { products: data });

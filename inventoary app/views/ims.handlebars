@@ -1,37 +1,45 @@
-<h1>Inventory Management System</h1>
+<h1>Products Information</h1>
 
-<p>Manage inventory with this app</p>
+<p>Inventory Management with this app</p>
 
 <!-- Pass in data from server.js -->
 <ul>
   {{#each products}}
+<<<<<<< HEAD
   	<li>
   		<p><span class="label">ID:</span> {{this.id}}</p>
+=======
+    <li>
+        <p><span class="label">ID:</span> {{this.id}}</p>
+>>>>>>> 0c14dfb88a3f9e756b3442e67fa7f07801a6130b
       <p><span class="label">Name:</span> {{this.name}}</p>
       <p><span class="label">Quantity:</span> {{this.quantity}}</p>
-      <p><span class="label">Price:</span> {{this.price}}</p>
-      <p><span class="label">Supplier:</span> {{this.supplier}}</p>
+       <p><span class="label">Price:</span> {{this.price}}</p>
+        <p><span class="label">Supplier:</span> {{this.supplier}}</p>
 
       <button data-id="{{this.id}}" class="delquote">Delete</button>
 
-      <a href="/{{this.id}}">Update this product</a>
-  	</li>
+      <a href="/{{this.id}}">Update this Product</a>
+    </li>
   {{/each}}
 </ul>
 
-<h2>Add a Quote</h2>
+<h2>Add a Product</h2>
 
 <form class="create-form">
 
   <div class="form-group">
-    <label for="auth">Name:</label>
-    <input type="text" id="auth" name="author">
+    <label for="product">Name :</label>
+    <input type="text" id="product_id" name="product_name">
+    <label for="product">Quantity:</label>
+    <input type="number" id="quant" name="quantity">
+    <label for="product">Price:</label>
+    <input type="number" id="price" name="price_product">
+    <label for="product">Supplier :</label>
+    <input type="text" id="supp" name="supplier">
   </div>
 
-  <div class="form-group">
-    <label for="quo">Quantity:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
+  
 
-  <button type="submit">Add Quantity</button>
+  <button type="submit">Add Product</button>
 </form>
