@@ -1,16 +1,17 @@
-<h1>Update the quote with an id of {{this.id}}</h1>
+<h1>Update the Product with an id of {{this.id}}</h1>
 
 <form data-id="{{this.id}}" class="update-form">
 
   <div class="form-group">
-    <label for="quant">Quantity:</label>
-    <input type="text" id="quant" name="quantity" value="{{this.quantity}}">
+    <label for="product">Name :</label>
+    <input type="text" id="product_id" name="product_name">
+    <label for="product">Quantity:</label>
+    <input type="number" id="quant" name="quantity">
+    <label for="product">Price:</label>
+    <input type="number" id="price" name="price_product">
+    <label for="product">Supplier :</label>
+    <input type="text" id="supp" name="supplier">
   </div>
 
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <textarea id="name" name="name" rows="8" cols="40">{{this.name}}</textarea>
-  </div>
-
-  <button type="submit">Update Quote</button>
+  <button type="submit">Update Product/button>
 </form>
